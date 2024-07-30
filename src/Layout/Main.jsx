@@ -1,10 +1,10 @@
-import React from 'react';
+
 import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
-        <div>
-            {Outlet}
+        <div className="max-w-[1250px] mx-auto">
+            <Outlet></Outlet>
         </div>
     );
 };
