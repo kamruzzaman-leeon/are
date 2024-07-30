@@ -7,7 +7,7 @@ const Navbar = () => {
         {/* <li className=""><Link to="/teacher-search">Teacher portal</Link></li> */}
     </>
     return (
-        <div className="navbar bg-gray-400 text-white">
+        <div className="navbar bg-bla">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

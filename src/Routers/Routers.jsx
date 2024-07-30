@@ -3,7 +3,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layout/Main';
 import Home from '../Pages/Home/Home/Home';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
-import TeacherSearch from '../Pages/TeacherSearch/TeacherSearch';
+import Search from '../Pages/Search/Search';
+
 
 const Routers = createBrowserRouter([
     {
@@ -16,7 +17,7 @@ const Routers = createBrowserRouter([
         },
         {
           path:"/teacher-search",
-          element:<TeacherSearch></TeacherSearch>
+          element:<Search></Search>
         }
       ]
     },
