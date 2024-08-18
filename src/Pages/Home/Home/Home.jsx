@@ -1,11 +1,16 @@
+import Banner from '../Banner/Banner';
 
-import Navbar from '../../../Component/Navbar';
 
 const Home = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-            <h1 className='text-center text-6xl'>this is home</h1>
+        <div className='flex flex-col content-around'>
+            
+            <div className='h-screen'>
+               <Banner></Banner>
+                <h1 className='text-center text-6xl'>this is home</h1>
+                
+            </div>
+
         </div>
     );
 };

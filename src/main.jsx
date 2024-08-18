@@ -5,11 +5,15 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Routers from "./Routers/Routers";
+import { HelmetProvider } from "react-helmet-async";
 
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <HelmetProvider>
+ <React.StrictMode>
     <RouterProvider router={Routers} />
   </React.StrictMode>
+  </HelmetProvider>
+ 
 );

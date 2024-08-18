@@ -4,13 +4,14 @@ const Navbar = () => {
     const navoptions = <>
         <li className=""><Link to="/">Home</Link></li>
         <li className=""><Link to="/search">Search</Link></li>
-        <li className=""><Link to="/profile">Profile</Link></li>
-        {/* <li className=""><Link to="/teacher-search">Teacher portal</Link></li> */}
+        <li><Link to="/profile">Profile</Link></li>
+        <li><Link to="/sign-in">Sign In</Link> </li>
+        <li><Link to="/sign-out">Sign Out</Link> </li>
+
     </>
     return (
-        <div className="navbar bg-bla">
+        <div className="navbar border-b-2 sticky top-0 bg-opacity-60 bg-white font-semibold text-neutral-700">
             <div className="navbar-start">
-                {/* side bar */}
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
@@ -28,24 +29,24 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         {
                             navoptions
                         }
                     </ul>
                 </div>
-                <a href="/" className="btn btn-ghost text-4xl">aRe</a>
+                <a className="btn btn-ghost text-4xl">aRe</a>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 font-bold">
+            <div className="navbar-end hidden lg:flex">
+                <ul className="menu menu-horizontal px-1 space-x-6">
                     {
                         navoptions
                     }
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Sign In</a>
-            </div>
+            {/* <div className="navbar-end">
+            
+            </div> */}
         </div>
     );
 };
