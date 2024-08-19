@@ -1,0 +1,226 @@
+{
+    "divisions": [
+      {
+        "id": 1,
+        "name": "Dhaka",
+        "districts": [
+          {
+            "id": 101,
+            "name": "Narsingdi",
+            "upazilas": [
+              { "id": 1001, "name": "Sadar" },
+              { "id": 1002, "name": "Monohordi" },
+              { "id": 1003, "name": "Shibpur" },
+              { "id": 1004, "name": "Palash" },
+              { "id": 1005, "name": "Belab" },
+              { "id": 1006, "name": "Raipura" }
+            ]
+          },
+          {
+            "id": 102,
+            "name": "Narayanganj",
+            "upazilas": [
+              { "id": 1007, "name": "Sadar" },
+              { "id": 1008, "name": "Bandar" },
+              { "id": 1009, "name": "Sonargaon" },
+              { "id": 1010, "name": "Arai Hazar" },
+              { "id": 1011, "name": "Rupgonj" }
+            ]
+          },
+          {
+            "id": 103,
+            "name": "Munshiganj",
+            "upazilas": [
+              { "id": 1012, "name": "Sadar" },
+              { "id": 1013, "name": "Tungibari" },
+              { "id": 1014, "name": "Louhagonj" },
+              { "id": 1015, "name": "Sree Nagar" },
+              { "id": 1016, "name": "Sirajdikhan" },
+              { "id": 1017, "name": "Gazaria" }
+            ]
+          },
+          {
+            "id": 104,
+            "name": "Gazipur",
+            "upazilas": [
+              { "id": 1018, "name": "Sadar" },
+              { "id": 1019, "name": "Tongi" },
+              { "id": 1020, "name": "Kaliganj" },
+              { "id": 1021, "name": "Kaliakoir" },
+              { "id": 1022, "name": "Kapasia" },
+              { "id": 1023, "name": "Sreepur" }
+            ]
+          },
+          {
+            "id": 105,
+            "name": "Manikganj",
+            "upazilas": [
+              { "id": 1024, "name": "Sadar" },
+              { "id": 1025, "name": "Singair" },
+              { "id": 1026, "name": "Daulatpur" },
+              { "id": 1027, "name": "Horirampur" },
+              { "id": 1028, "name": "Gheor" },
+              { "id": 1029, "name": "Shibaloy" },
+              { "id": 1030, "name": "Saturia" }
+            ]
+          },
+          {
+            "id": 106,
+            "name": "Dhaka City",
+            "upazilas": [
+              { "id": 1031, "name": "Kotwali" },
+              { "id": 1032, "name": "Mohammadpur" },
+              { "id": 1033, "name": "Lalbagh" },
+              { "id": 1034, "name": "Sutrapur" },
+              { "id": 1035, "name": "Motijheel" },
+              { "id": 1036, "name": "Demra" },
+              { "id": 1037, "name": "Sabujbagh" },
+              { "id": 1038, "name": "Mirpur" },
+              { "id": 1039, "name": "Gulshan" },
+              { "id": 1040, "name": "Uttara" },
+              { "id": 1041, "name": "Pallabi" },
+              { "id": 1042, "name": "Cantonment" },
+              { "id": 1043, "name": "Dhanmondi" },
+              { "id": 1044, "name": "Tejgaon" },
+              { "id": 1045, "name": "Ramna" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Faridpur",
+        "districts": [
+          {
+            "id": 201,
+            "name": "Faridpur",
+            "upazilas": [
+              { "id": 2001, "name": "Sadar" },
+              { "id": 2002, "name": "Boalmari" },
+              { "id": 2003, "name": "Sadarpur" },
+              { "id": 2004, "name": "Char Bhadrashon" },
+              { "id": 2005, "name": "Bhanga" },
+              { "id": 2006, "name": "Nagarkanda" },
+              { "id": 2007, "name": "Madhukhali" },
+              { "id": 2008, "name": "Alphadanga" },
+              { "id": 2009, "name": "Salthana" }
+            ]
+          },
+          {
+            "id": 202,
+            "name": "Rajbari",
+            "upazilas": [
+              { "id": 2010, "name": "Sadar" },
+              { "id": 2011, "name": "Pangsha" },
+              { "id": 2012, "name": "Goalondo" },
+              { "id": 2013, "name": "Kalukhali" },
+              { "id": 2014, "name": "Baliakandi" }
+            ]
+          },
+          {
+            "id": 203,
+            "name": "Gopalganj",
+            "upazilas": [
+              { "id": 2015, "name": "Sadar" },
+              { "id": 2016, "name": "Kashiani" },
+              { "id": 2017, "name": "Tongipara" },
+              { "id": 2018, "name": "Muksudpur" },
+              { "id": 2019, "name": "Kotalipara" }
+            ]
+          },
+          {
+            "id": 204,
+            "name": "Madaripur",
+            "upazilas": [
+              { "id": 2020, "name": "Sadar" },
+              { "id": 2021, "name": "Kalkini" },
+              { "id": 2022, "name": "Rajoir" },
+              { "id": 2023, "name": "Shibchar" }
+            ]
+          },
+          {
+            "id": 205,
+            "name": "Sariatpur",
+            "upazilas": [
+              { "id": 2024, "name": "Sadar" },
+              { "id": 2025, "name": "Damudda" },
+              { "id": 2026, "name": "Naria" },
+              { "id": 2027, "name": "Jagira" },
+              { "id": 2028, "name": "Vedorgonj" },
+              { "id": 2029, "name": "Goshair Hat" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Barishal",
+        "districts": [
+          {
+            "id": 301,
+            "name": "Borguna",
+            "upazilas": [
+              { "id": 3001, "name": "Sadar" },
+              { "id": 3002, "name": "Amtoli" },
+              { "id": 3003, "name": "Betagi" },
+              { "id": 3004, "name": "Taltoli" },
+              { "id": 3005, "name": "Patharghata" },
+              { "id": 3006, "name": "Bamna" }
+            ]
+          },
+          {
+            "id": 302,
+            "name": "Bhola",
+            "upazilas": [
+              { "id": 3007, "name": "Sadar" },
+              { "id": 3008, "name": "Daulatkhan" },
+              { "id": 3009, "name": "Lalmohan" },
+              { "id": 3010, "name": "Monpura" },
+              { "id": 3011, "name": "Charfassion" },
+              { "id": 3012, "name": "Tajumuddin" },
+              { "id": 3013, "name": "Borhanuddin" }
+            ]
+          },
+          {
+            "id": 303,
+            "name": "Jhalokati",
+            "upazilas": [
+              { "id": 3014, "name": "Sadar" },
+              { "id": 3015, "name": "Kathalia" },
+              { "id": 3016, "name": "Rajapur" },
+              { "id": 3017, "name": "Mouza" }
+            ]
+          },
+          {
+            "id": 304,
+            "name": "Patuakhali",
+            "upazilas": [
+              { "id": 3018, "name": "Sadar" },
+              { "id": 3019, "name": "Dumki" },
+              { "id": 3020, "name": "Kolkata" },
+              { "id": 3021, "name": "Mirzaganj" },
+              { "id": 3022, "name": "Bauphal" },
+              { "id": 3023, "name": "Patuakhali" },
+              { "id": 3024, "name": "Galachipa" }
+            ]
+          },
+          {
+            "id": 305,
+            "name": "Barishal City",
+            "upazilas": [
+              { "id": 3025, "name": "Sadar" },
+              { "id": 3026, "name": "Kawnia" },
+              { "id": 3027, "name": "Kalapara" },
+              { "id": 3028, "name": "Muladi" },
+              { "id": 3029, "name": "Agailjhara" },
+              { "id": 3030, "name": "Babuganj" },
+              { "id": 3031, "name": "Hizla" },
+              { "id": 3032, "name": "Banaripara" },
+              { "id": 3033, "name": "Mehendiganj" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
