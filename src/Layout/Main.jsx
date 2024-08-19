@@ -12,8 +12,6 @@ const Main = () => {
             <div className='bg-slate-100'>
                 <Outlet></Outlet>
             </div>
-
-
             <Footer></Footer>
         </div>
     );
