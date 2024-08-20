@@ -9,7 +9,7 @@ const Navbar = () => {
     </>
     return (
   
-        <div className="navbar bg-white border-b-2 border-t-2 bg-opacity-60">
+        <div className="navbar sticky top-0 bg-white border-b-2 border-t-2 bg-opacity-80">
             
             <div className="navbar-start">
 

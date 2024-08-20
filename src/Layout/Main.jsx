@@ -4,19 +4,21 @@ import Footer from '../Component/Footer/Footer';
 
 const Main = () => {
     return (
-        <div
-        // style={{
-        //     background: "linear-gradient(90deg, rgba(2,0,36,0.2806372549019608) 0%, rgba(9,9,121,0) 35%, rgba(0,212,255,0.3702731092436975) 100%)"
-        // }}
-        >
-            <div className="font-mono centerwithfixedwidth flex flex-col justify-between">
-                <Navbar />
+        <div className='relative isolate overflow-hidden bg-white'>
+    <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
+    <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
 
-                <Outlet />
+    <div className="font-mono centerwithfixedwidth flex flex-col justify-between mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <Navbar />
 
-                <Footer />
-            </div>
+        <div className="flex-1">
+            <Outlet />
         </div>
+
+        <Footer />
+    </div>
+</div>
+
     );
 };
 
