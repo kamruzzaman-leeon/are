@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewCard = () => {
     return (
-        <div className='border-2'>
+        <div className='border-2 py-8'>
             <div className="relative overflow-hidden bg-white px-6 sm:py-8 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:max-w-4xl">
                     <figure className="">
