@@ -43,6 +43,11 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end space-x-4">
+            <div>
+                    <ul className="">
+                        <li className="navitem"><Link to="/sign-in">Sign In</Link> </li>
+                    </ul>
+                </div>
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost hover:bg-blue-500 btn-circle avatar">
                         <div className="w-10 rounded-full">
@@ -61,11 +66,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <div>
-                    <ul className="">
-                        <li className="navitem"><Link to="/sign-in">Sign In</Link> </li>
-                    </ul>
-                </div>
+                
             </div>
         </div>
     );

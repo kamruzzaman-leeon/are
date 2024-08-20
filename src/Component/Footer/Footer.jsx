@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className=' '>
+        <footer className=''>
             <div className='centerwithfixedwidth'>
                 <section className="footer  text-base-content p-10">
                     <nav>
@@ -43,7 +43,7 @@ const Footer = () => {
                 </section>
                 <section className="footer footer-center border-t-2 text-base-content p-4">
                     <aside>
-                        <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+                        <p>Copyright © {new Date().getFullYear()} - All right reserved by aRe</p>
                     </aside>
                 </section>
             </div>
