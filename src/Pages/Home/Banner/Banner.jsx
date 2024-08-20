@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import banner1 from '';
 
 const Banner = () => {
   const [role, setRole] = useState('');
@@ -7,8 +8,11 @@ const Banner = () => {
     setRole(event.target.value);
   };
 
-    return (
-    <div className="flex justify-center items-center h-[70vh] bg-gray-50">
+  return (
+    <div 
+      className="flex justify-center items-center h-[80vh] bg-gray-50 bg-cover bg-center my-1 bg-[url('https://i.ibb.co/1rTrFZr/person-holding-light-bulb-with-graduation-cap.jpg')]"
+      
+    >
       <div className="card bg-base-100 w-auto shadow-xl">
         <div className="card-body flex flex-col sm:flex-row justify-center items-center space-x-2">
           <form>
