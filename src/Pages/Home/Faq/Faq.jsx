@@ -24,7 +24,7 @@ const faqList = [
 	},
 	{
 		isActive: false,
-		question: "How often does your team upload resources?",
+		question: "How often you upload resources?",
 		answer:
 			"When it comes to booking a holiday, we know everyone likes something different - so we've designed our getaways with you in mind. When it comes to booking a holiday, we know everyone likes something different.",
 	},
@@ -62,20 +62,20 @@ FaqItem.propTypes = {
 
  const Faq = () => {
 	return (
-		<section className="ezy__faq8 light py-14 md:py-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
-			<div className="container px-16 md:px-8 lg:px-28">
+		<section className=" py-14 md:py-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
+			<div className="px-6 md:px-2">
 				<div className="grid grid-cols-12 justify-between gap-6">
-					<div className="col-span-12 md:col-span-5">
-						<h2 className="font-bold text-[25px] md:text-[45px] leading-none mb-6">
+					<div className="col-span-12 md:col-span-5 items-center">
+						<h2 className="font-bold text-3xl md:text-5xl text-center md:text-left leading-none mb-6">
 							Frequently Asked Questions
 						</h2>
-						<p className="text-lg opacity-70">
+						<p className="text-base md:text-lg opacity-70 text-justify">
 							Assumenda non repellendus distinctio nihil dicta sapiente,
 							quibusdam maiores, illum at, aliquid blanditiis eligendi
 							qui.Assumenda non repellendus distinctio nihil dicta sapiente,
 							quibusdam maiores
 						</p>
-						<button className="bg-transparent hover:bg-blue-600 border border-blue-600 hover:text-white rounded transition mt-6 lg:mt-12 px-7 py-3 text-blue-600">
+						<button className="bg-transparent  hover:bg-blue-600 border border-blue-600 hover:text-white rounded transition mt-6 lg:mt-12 px-7 py-3 text-blue-600">
 							View All FAQ's
 						</button>
 					</div>

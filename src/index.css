@@ -4,7 +4,7 @@
 
 @layer components {
   .centerwithfixedwidth {
-    @apply max-w-[1250px] mx-auto;
+    @apply max-w-screen-xl mx-auto;
   }
 
   .navitem {
