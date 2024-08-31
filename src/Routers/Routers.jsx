@@ -16,7 +16,7 @@ const Routers = createBrowserRouter([
             element:<Home></Home>,
         },
         {
-          path:"/search",
+          path:"/search/:role",
           element:<Search></Search>
         },
         {

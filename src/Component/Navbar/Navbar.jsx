@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import './Navbar.css'
 
 const Navbar = () => {
     const navoptions = <>
-        <li className="navitem"><Link to="/">Home</Link></li>
-        <li className="navitem"><Link to="/search">Search</Link></li>
+        <li className="navitem"><NavLink to="/">Home</NavLink></li>
+        <li className="navitem"><NavLink to="/search">Search</NavLink></li>
 
 
     </>

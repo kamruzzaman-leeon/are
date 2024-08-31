@@ -7,16 +7,5 @@
     @apply max-w-screen-xl mx-auto;
   }
 
-  .navitem {
-    @apply px-4 pb-1 relative active:font-semibold text-gray-600 hover:text-blue-600;
-  }
-
-  .navitem::after {
-    @apply absolute left-0 bottom-0 w-0 h-1 bg-transparent transition-all duration-500 ease-in-out;
-    content: '';
-  }
-
-  .navitem:hover::after {
-    @apply w-full bg-blue-600;
-  }
+  
 }
