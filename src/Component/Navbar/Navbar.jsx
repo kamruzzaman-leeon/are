@@ -3,17 +3,27 @@ import './Navbar.css'
 
 const Navbar = () => {
     const navoptions = <>
-        <li className="navitem"><NavLink to="/">Home</NavLink></li>
-        <li className="navitem"><NavLink to="/search">Search</NavLink></li>
+        <li className="navitem">
+            <NavLink 
+                to="/" 
+                className={({ isActive }) => isActive ? "active" : ""}
+            >
+                Home
+            </NavLink>
+        </li>
+        <li className="navitem">
+            <NavLink 
+                to="/search/teacher" 
+                className={({ isActive }) => isActive ? "active" : ""}
+            >
+                Search
+            </NavLink>
+        </li>
+    </>;
 
-
-    </>
     return (
-  
         <div className="navbar sticky top-0 z-50 bg-white border-b-2 border-t-2 bg-opacity-80">
-            
             <div className="navbar-start">
-
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
@@ -35,18 +45,27 @@ const Navbar = () => {
                         {navoptions}
                     </ul>
                 </div>
-                <Link className="navitem active:bg-white hidden lg:flex text-3xl">aRe</Link>
+                
+                <Link className="navitem hidden lg:flex text-3xl">aRe</Link>
             </div>
             <div className="navbar-center  ">
-            <a className="hover:bg-blue-500 active:bg-white text-3xl lg:hidden flex">aRe</a>
+                <a className="hover:bg-blue-500 text-3xl lg:hidden flex">aRe</a>
                 <ul className=" hidden lg:flex space-x-4">
                     {navoptions}
                 </ul>
             </div>
             <div className="navbar-end space-x-4">
-            <div>
+                <div>
                     <ul className="">
-                        <li className="navitem"><Link to="/sign-in">Sign In</Link> </li>
+                       
+                        <li className="navitem">
+            <NavLink 
+                to="/sign-in" 
+                className={({ isActive }) => isActive ? "active" : ""}
+            >
+               Sign In
+            </NavLink>
+        </li>
                     </ul>
                 </div>
                 <div className="dropdown dropdown-end">
@@ -60,14 +79,11 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className=" dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-auto p-4 shadow">
-                        <li className="navitem"><Link to="/profile">Profile</Link></li>
-
-                        <li className="navitem"><a>Settings</a></li>
-                        <li className="navitem"><Link to="/sign-out">Log Out</Link> </li>
-
+                        <li className="navitem"><NavLink to="/profile">Profile</NavLink></li>
+                        <li className="navitem"><NavLink to="/settings">Settings</NavLink></li>
+                        <li className="navitem"><NavLink to="/sign-out">Log Out</NavLink> </li>
                     </ul>
                 </div>
-                
             </div>
         </div>
     );

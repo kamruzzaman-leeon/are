@@ -1,5 +1,5 @@
 .navitem {
-    @apply px-4 pb-1 relative active:font-semibold text-gray-600 hover:text-blue-600;
+    @apply px-4 pb-1 relative text-gray-600 hover:text-blue-600;
   }
 
   .navitem::after {
@@ -10,3 +10,11 @@
   .navitem:hover::after {
     @apply w-full bg-blue-600;
   }
+
+  .active {
+    @apply font-semibold text-blue-600;
+}
+
+.active::after {
+    @apply w-full bg-blue-600;
+}

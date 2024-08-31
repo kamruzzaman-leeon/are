@@ -32,8 +32,8 @@ const Banner = () => {
               value={role}
             >
               <option disabled value="">Select Role</option>
-              <option value="Teacher">Teacher</option>
-              <option value="Student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="student">Student</option>
             </select>
             <button type="submit" className="btn btn-primary mx-2">
               Search
