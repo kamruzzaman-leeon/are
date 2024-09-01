@@ -22,7 +22,7 @@ const Navbar = () => {
     </>;
 
     return (
-        <div className="navbar sticky top-0 z-50 bg-white border-b-2 border-t-2 bg-opacity-80">
+        <div className="navbar  shadow-sm sticky top-0 z-50 bg-white border-b-2 border-t-2 bg-opacity-80">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,10 +46,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 
-                <Link className="navitem hidden lg:flex text-3xl">aRe</Link>
+                <NavLink className="navitem hidden lg:flex text-3xl" to="/">aRe</NavLink>
             </div>
             <div className="navbar-center  ">
-                <a className="hover:bg-blue-500 text-3xl lg:hidden flex">aRe</a>
+                <NavLink className="navitem text-3xl lg:hidden flex" to="/">aRe</NavLink>
                 <ul className=" hidden lg:flex space-x-4">
                     {navoptions}
                 </ul>
