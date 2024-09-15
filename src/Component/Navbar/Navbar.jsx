@@ -1,35 +1,35 @@
-import {NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './Navbar.css'
 
 const Navbar = () => {
     const navoptions = <>
         <li className="navitem">
-            <NavLink 
-                to="/" 
+            <NavLink
+                to="/"
                 className={({ isActive }) => isActive ? "active" : ""}
             >
                 Home
             </NavLink>
         </li>
-        <li className="navitem">
+        {/* <li className="navitem">
             <NavLink 
                 to="/search/teacher" 
                 className={({ isActive }) => isActive ? "active" : ""}
             >
                 Search
             </NavLink>
-        </li>
+        </li> */}
         <li className="navitem">
-            <NavLink 
-                to="/find_teacher" 
+            <NavLink
+                to="/find_teacher"
                 className={({ isActive }) => isActive ? "active" : ""}
             >
                 Find Teacher
             </NavLink>
         </li>
         <li className="navitem">
-            <NavLink 
-                to="/find_student" 
+            <NavLink
+                to="/find_student"
                 className={({ isActive }) => isActive ? "active" : ""}
             >
                 Find Student
@@ -61,7 +61,7 @@ const Navbar = () => {
                         {navoptions}
                     </ul>
                 </div>
-                
+
                 <NavLink className="navitem hidden lg:flex text-3xl" to="/">aRe</NavLink>
             </div>
             <div className="navbar-center  ">
@@ -73,15 +73,15 @@ const Navbar = () => {
             <div className="navbar-end space-x-4">
                 <div>
                     <ul className="">
-                       
+
                         <li className="navitem">
-            <NavLink 
-                to="/sign-in" 
-                className={({ isActive }) => isActive ? "active" : ""}
-            >
-               Sign In
-            </NavLink>
-        </li>
+                            <NavLink
+                                to="/sign-in"
+                                className={({ isActive }) => isActive ? "active" : ""}
+                            >
+                                Sign In
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className="dropdown dropdown-end">
