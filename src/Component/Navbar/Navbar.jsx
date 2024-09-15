@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 import './Navbar.css'
 
 const Navbar = () => {
@@ -17,6 +17,22 @@ const Navbar = () => {
                 className={({ isActive }) => isActive ? "active" : ""}
             >
                 Search
+            </NavLink>
+        </li>
+        <li className="navitem">
+            <NavLink 
+                to="/find_teacher" 
+                className={({ isActive }) => isActive ? "active" : ""}
+            >
+                Find Teacher
+            </NavLink>
+        </li>
+        <li className="navitem">
+            <NavLink 
+                to="/find_student" 
+                className={({ isActive }) => isActive ? "active" : ""}
+            >
+                Find Student
             </NavLink>
         </li>
     </>;

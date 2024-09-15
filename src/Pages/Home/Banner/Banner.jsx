@@ -11,9 +11,7 @@ const Banner = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (role) {
-      navigate(`/search/${role}`);
-    }
+    role === 'teacher' ? navigate('/find_teacher') : navigate('/find_student'); 
   };
 
   return (
@@ -31,11 +29,17 @@ const Banner = () => {
               onChange={handleRoleChange}
               value={role}
             >
-              <option disabled value="">Select Role</option>
+              <option value="" disabled>
+                Select Role
+              </option>
               <option value="teacher">Teacher</option>
               <option value="student">Student</option>
             </select>
-            <button type="submit" className="btn btn-primary mx-2">
+            <button
+              type="submit"
+              className="btn btn-primary mx-2"
+              disabled={!role}
+            >
               Search
             </button>
           </form>

@@ -4,6 +4,8 @@ import Main from '../Layout/Main';
 import Home from '../Pages/Home/Home/Home';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import Search from '../Pages/Search/Search';
+import FindTeacher from '../Pages/FindTeacher/FindTeacher';
+import FindStudent from '../Pages/FindStudent/FindStudent';
 
 
 const Routers = createBrowserRouter([
@@ -19,6 +21,15 @@ const Routers = createBrowserRouter([
           path:"/search/:role",
           element:<Search></Search>
         },
+        {
+          path:"/find_teacher",
+          element:<FindTeacher></FindTeacher>
+        },
+        {
+          path:"/find_student",
+          element:<FindStudent></FindStudent>
+        }
+        ,
         {
           path:"/profile",
           element:<div>profile</div>
