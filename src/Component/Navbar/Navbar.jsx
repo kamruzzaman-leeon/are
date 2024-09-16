@@ -1,14 +1,22 @@
 import { NavLink } from "react-router-dom";
 import './Navbar.css'
-
+import { IoMdHome } from "react-icons/io";
+import { LiaChalkboardTeacherSolid } from "react-icons/lia";
+import { PiStudentFill } from "react-icons/pi";
+import { IoIosLogIn } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
+import { IoSettings } from "react-icons/io5";
+import { FaSignOutAlt } from "react-icons/fa";
 const Navbar = () => {
     const navoptions = <>
-        <li className="navitem">
+        <li className="navitem ">
+
             <NavLink
                 to="/"
-                className={({ isActive }) => isActive ? "active" : ""}
+                className={`inline-flex items-center ({ isActive }) => isActive ? "active" : ""`}
             >
-                Home
+                <IoMdHome className="text-2xl"/>
+                <span>Home</span>
             </NavLink>
         </li>
         {/* <li className="navitem">
@@ -20,19 +28,21 @@ const Navbar = () => {
             </NavLink>
         </li> */}
         <li className="navitem">
+
             <NavLink
                 to="/find_teacher"
-                className={({ isActive }) => isActive ? "active" : ""}
-            >
-                Find Teacher
+                className={`inline-flex items-center ({ isActive }) => isActive ? "active" : ""`}
+            ><LiaChalkboardTeacherSolid className="text-2xl"/>
+                <span>Find Teacher</span>
             </NavLink>
         </li>
         <li className="navitem">
+
             <NavLink
                 to="/find_student"
-                className={({ isActive }) => isActive ? "active" : ""}
-            >
-                Find Student
+                className={`inline-flex items-center ({ isActive }) => isActive ? "active" : ""`}
+            > <PiStudentFill className="text-2xl"/>
+                <span>Find Student</span>
             </NavLink>
         </li>
     </>;
@@ -75,18 +85,20 @@ const Navbar = () => {
                     <ul className="">
 
                         <li className="navitem">
+
                             <NavLink
                                 to="/sign-in"
-                                className={({ isActive }) => isActive ? "active" : ""}
+                                className={`inline-flex items-center ({ isActive }) => isActive ? "active" : ""`}
                             >
-                                Sign In
+                                <IoIosLogIn className="text-2xl" />
+                                <span> Login</span>
                             </NavLink>
                         </li>
                     </ul>
                 </div>
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost hover:bg-blue-500 btn-circle avatar">
-                        <div className="w-10 rounded-full">
+                        <div className="w-auto rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
@@ -95,9 +107,9 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className=" dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-auto p-4 shadow">
-                        <li className="navitem"><NavLink to="/profile">Profile</NavLink></li>
-                        <li className="navitem"><NavLink to="/settings">Settings</NavLink></li>
-                        <li className="navitem"><NavLink to="/sign-out">Log Out</NavLink> </li>
+                        <li className="navitem"><NavLink to="/profile" className={`inline-flex items-center`}><CgProfile className="text-2xl"/><span>Profile</span></NavLink></li>
+                        <li className="navitem"><NavLink to="/settings" className={`inline-flex items-center`}><IoSettings className="text-2xl"/><span>Settings</span></NavLink></li>
+                        <li className="navitem"><NavLink to="/sign-out" className={`inline-flex items-center`}> <FaSignOutAlt className="text-2xl"/><span>LogOut</span></NavLink> </li>
                     </ul>
                 </div>
             </div>
