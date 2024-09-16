@@ -38,17 +38,16 @@ const TeacherCard = () => {
                     {/* Rating */}
                     <div>
                         <ToolTip data='Rating'>
-                            <div className="rating rating-sm">
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600" />
-                                <input
-                                    type="radio"
-                                    name="rating-6"
-                                    className="mask mask-star-2 bg-blue-600"
-                                    defaultChecked />
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600" />
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600" />
-                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600" />
-                            </div></ToolTip>
+                            <div className="rating rating-sm inline-flex items-center">
+                                <input disabled type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600" />
+                                <input disabled type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600"  />
+                                <input disabled type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600" />
+                                <input disabled type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600" />
+                                <input disabled type="radio" name="rating-6" className="mask mask-star-2 bg-blue-600" />
+                                <p>(0)</p>
+                            </div>
+                            
+                            </ToolTip>
                     </div>
 
 

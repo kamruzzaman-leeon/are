@@ -6,6 +6,9 @@ import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import Search from '../Pages/Search/Search';
 import FindTeacher from '../Pages/FindTeacher/FindTeacher';
 import FindStudent from '../Pages/FindStudent/FindStudent';
+import Registration from '../Credential/Registration';
+import Login from "../Credential/Login";
+
 
 
 const Routers = createBrowserRouter([
@@ -19,15 +22,23 @@ const Routers = createBrowserRouter([
         },
         {
           path:"/search/:role",
-          element:<Search></Search>
+          element:<Search></Search>,
         },
         {
           path:"/find_teacher",
-          element:<FindTeacher></FindTeacher>
+          element:<FindTeacher></FindTeacher>,
         },
         {
           path:"/find_student",
-          element:<FindStudent></FindStudent>
+          element:<FindStudent></FindStudent>,
+        },
+        {
+          path:"/login",
+          element:<Login></Login>,
+        },
+        {
+          path:"/registration",
+          element:<Registration></Registration>
         }
         ,
         {

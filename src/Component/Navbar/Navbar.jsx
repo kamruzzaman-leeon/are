@@ -13,9 +13,9 @@ const Navbar = () => {
 
             <NavLink
                 to="/"
-                className={`inline-flex items-center ({ isActive }) => isActive ? "active" : ""`}
+                className={`inline-flex gap-x-1 content-center  ({ isActive }) => isActive ? "active" : ""`}
             >
-                <IoMdHome className="text-2xl"/>
+                <IoMdHome className="text-xl"/>
                 <span>Home</span>
             </NavLink>
         </li>
@@ -31,7 +31,7 @@ const Navbar = () => {
 
             <NavLink
                 to="/find_teacher"
-                className={`inline-flex items-center ({ isActive }) => isActive ? "active" : ""`}
+                className={`inline-flex gap-x-1 content-center  ({ isActive }) => isActive ? "active" : ""`}
             ><LiaChalkboardTeacherSolid className="text-2xl"/>
                 <span>Find Teacher</span>
             </NavLink>
@@ -40,7 +40,7 @@ const Navbar = () => {
 
             <NavLink
                 to="/find_student"
-                className={`inline-flex items-center ({ isActive }) => isActive ? "active" : ""`}
+                className={`inline-flex gap-x-1  content-center  ({ isActive }) => isActive ? "active" : ""`}
             > <PiStudentFill className="text-2xl"/>
                 <span>Find Student</span>
             </NavLink>
@@ -48,7 +48,7 @@ const Navbar = () => {
     </>;
 
     return (
-        <div className="navbar  shadow-sm sticky top-0 z-50 bg-white border-b-2 border-t-2 bg-opacity-80">
+        <div className="navbar  shadow-sm sticky top-0 z-[999] bg-white border-b-2 border-t-2 bg-opacity-80">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -72,10 +72,10 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <NavLink className="navitem hidden lg:flex text-3xl" to="/">aRe</NavLink>
+                <NavLink className="navitem hidden lg:flex text-2xl " to="/">aRe</NavLink>
             </div>
             <div className="navbar-center  ">
-                <NavLink className="navitem text-3xl lg:hidden flex" to="/">aRe</NavLink>
+                <NavLink className="navitem text-2xl lg:hidden flex" to="/">aRe</NavLink>
                 <ul className=" hidden lg:flex space-x-4">
                     {navoptions}
                 </ul>
@@ -87,10 +87,10 @@ const Navbar = () => {
                         <li className="navitem">
 
                             <NavLink
-                                to="/sign-in"
+                                to="/login"
                                 className={`inline-flex items-center ({ isActive }) => isActive ? "active" : ""`}
                             >
-                                <IoIosLogIn className="text-2xl" />
+                                <IoIosLogIn className="text-2xl mr-2" />
                                 <span> Login</span>
                             </NavLink>
                         </li>
@@ -107,9 +107,9 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className=" dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-auto p-4 shadow">
-                        <li className="navitem"><NavLink to="/profile" className={`inline-flex items-center`}><CgProfile className="text-2xl"/><span>Profile</span></NavLink></li>
-                        <li className="navitem"><NavLink to="/settings" className={`inline-flex items-center`}><IoSettings className="text-2xl"/><span>Settings</span></NavLink></li>
-                        <li className="navitem"><NavLink to="/sign-out" className={`inline-flex items-center`}> <FaSignOutAlt className="text-2xl"/><span>LogOut</span></NavLink> </li>
+                        <li className="navitem"><NavLink to="/profile" className={`inline-flex items-center`}><CgProfile className="text-2xl mr-2"/><span>Profile</span></NavLink></li>
+                        <li className="navitem"><NavLink to="/settings" className={`inline-flex items-center`}><IoSettings className="text-2xl mr-2"/><span>Settings</span></NavLink></li>
+                        <li className="navitem"><NavLink to="/sign-out" className={`inline-flex items-center`}> <FaSignOutAlt className="text-2xl mr-2"/><span>LogOut</span></NavLink> </li>
                     </ul>
                 </div>
             </div>
