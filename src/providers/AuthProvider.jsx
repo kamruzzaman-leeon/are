@@ -7,9 +7,9 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
-    const axiosPublic=useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
@@ -76,12 +76,12 @@ const AuthProvider = ({children}) => {
 
     return (
         <AuthContext.Provider value={authInfo}>
-        {children}
-    </AuthContext.Provider>
+            {children}
+        </AuthContext.Provider>
     );
 };
 
-AuthProvider.propTypes={
+AuthProvider.propTypes = {
     children: PropTypes.object,
 }
 
