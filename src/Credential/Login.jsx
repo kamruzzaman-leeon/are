@@ -95,7 +95,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" {...register("email",{required:true})} className="input input-bordered" />
+                                <input type="email" placeholder="email" {...register("email")} className="input input-bordered" />
                                 {errors.email?.type === 'required' && <p className='text-red-600 p-2'>Email is require</p>}
                             </div>
                             <div className="form-control relative">
