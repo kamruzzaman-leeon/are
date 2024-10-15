@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import Loading from '../Component/Loading/Loading';
 import useAuth from '../hooks/useAuth';
 import { IoEyeOff, IoEye } from 'react-icons/io5';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
@@ -38,14 +39,37 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                // console.log(user)
+                console.log(user)
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully Sign In!",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                
 
                 reset();
                 navigate(from, { replace: true })
             }).catch(error => {
-                
-
+                console.log(error)
+                Swal.fire({
+                    title: "Invaild password!",
+                    showClass: {
+                        popup: `
+                      animate__animated
+                      animate__fadeInUp
+                      animate__faster
+                    `
+                    },
+                    hideClass: {
+                        popup: `
+                      animate__animated
+                      animate__fadeOutDown
+                      animate__faster
+                    `
+                    }
+                });
 
 
             })
