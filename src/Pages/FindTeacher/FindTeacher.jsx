@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 
 const FindTeacher = () => {
     return (
-        <div className=''>
+        <div className='centerwithfixedwidth'>
             <Helmet>
                 <title>Find Teacher | Are</title>
             </Helmet>

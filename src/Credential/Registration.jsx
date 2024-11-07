@@ -63,7 +63,7 @@ const Registration = () => {
             <Helmet>
                 <title>Registration | aRe</title>
             </Helmet>
-
+            <div className='h-screen flex justify-center content-center'>
             <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="max-w-screen-sm content-center px-5">
                     <Lottie animationData={registration} loop={true} />
@@ -139,6 +139,7 @@ const Registration = () => {
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );

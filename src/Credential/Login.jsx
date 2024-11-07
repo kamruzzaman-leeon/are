@@ -78,7 +78,7 @@ const Login = () => {
     // console.log(watch("email"))
 
     return (
-        <>
+        <div className='h-screen flex justify-center content-center'>
             <Helmet>
                 <title>Login | Are</title>
             </Helmet>
@@ -151,7 +151,7 @@ const Login = () => {
 
 
 
-        </>
+        </div>
     );
 };
 
