@@ -7,7 +7,18 @@ import { IoIosLogIn } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { IoSettings } from "react-icons/io5";
 import { FaSignOutAlt } from "react-icons/fa";
+import { useEffect, useState } from "react";
 const Navbar = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     const navoptions = <>
         <li className="navitem ">
 
@@ -15,7 +26,7 @@ const Navbar = () => {
                 to="/"
                 className={`inline-flex gap-x-1 content-center  ({ isActive }) => isActive ? "active" : ""`}
             >
-                <IoMdHome className="text-xl"/>
+                <IoMdHome className="text-xl" />
                 <span>Home</span>
             </NavLink>
         </li>
@@ -32,7 +43,7 @@ const Navbar = () => {
             <NavLink
                 to="/find_teacher"
                 className={`inline-flex gap-x-1 content-center  ({ isActive }) => isActive ? "active" : ""`}
-            ><LiaChalkboardTeacherSolid className="text-2xl"/>
+            ><LiaChalkboardTeacherSolid className="text-2xl" />
                 <span>Find Teacher</span>
             </NavLink>
         </li>
@@ -41,14 +52,18 @@ const Navbar = () => {
             <NavLink
                 to="/find_student"
                 className={`inline-flex gap-x-1  content-center  ({ isActive }) => isActive ? "active" : ""`}
-            > <PiStudentFill className="text-2xl"/>
+            > <PiStudentFill className="text-2xl" />
                 <span>Find Student</span>
             </NavLink>
         </li>
     </>;
 
     return (
-        <div className="navbar  shadow-sm sticky top-0 z-[999] bg-white border-b-2 border-t-2 bg-opacity-80">
+
+        <div
+            className={`navbar sticky top-0 z-[999] bg-white transition-shadow duration-300 ease-in-out ${isScrolled ? 'shadow-md' : ''
+                }`}
+        >
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -107,9 +122,9 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className=" dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-auto p-4 shadow">
-                        <li className="navitem"><NavLink to="/profile" className={`inline-flex items-center`}><CgProfile className="text-2xl mr-2"/><span>Profile</span></NavLink></li>
-                        <li className="navitem"><NavLink to="/settings" className={`inline-flex items-center`}><IoSettings className="text-2xl mr-2"/><span>Settings</span></NavLink></li>
-                        <li className="navitem"><NavLink to="/sign-out" className={`inline-flex items-center`}> <FaSignOutAlt className="text-2xl mr-2"/><span>LogOut</span></NavLink> </li>
+                        <li className="navitem"><NavLink to="/profile" className={`inline-flex items-center`}><CgProfile className="text-2xl mr-2" /><span>Profile</span></NavLink></li>
+                        <li className="navitem"><NavLink to="/settings" className={`inline-flex items-center`}><IoSettings className="text-2xl mr-2" /><span>Settings</span></NavLink></li>
+                        <li className="navitem"><NavLink to="/sign-out" className={`inline-flex items-center`}> <FaSignOutAlt className="text-2xl mr-2" /><span>LogOut</span></NavLink> </li>
                     </ul>
                 </div>
             </div>

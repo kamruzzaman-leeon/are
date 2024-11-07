@@ -21,28 +21,28 @@ const Routers = createBrowserRouter([
             element:<Home></Home>,
         },
         {
-          path:"/search/:role",
+          path:"search/:role",
           element:<Search></Search>,
         },
         {
-          path:"/find_teacher",
+          path:"find_teacher",
           element:<FindTeacher></FindTeacher>,
         },
         {
-          path:"/find_student",
+          path:"find_student",
           element:<FindStudent></FindStudent>,
         },
         {
-          path:"/login",
+          path:"login",
           element:<Login></Login>,
         },
         {
-          path:"/registration",
+          path:"registration",
           element:<Registration></Registration>
         }
         ,
         {
-          path:"/profile",
+          path:"profile",
           element:<div>profile</div>
         }
       ]

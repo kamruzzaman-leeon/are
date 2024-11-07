@@ -13,7 +13,7 @@ const Registration = () => {
     const { createUser, updateUserProfile, logOut } = useAuth();
     const { register, handleSubmit, reset, formState: { errors }, watch, control } = useForm();
     const navigate = useNavigate();
-    
+
     const password = useWatch({ control, name: 'password' });
 
     const onSubmit = (data) => {
@@ -25,7 +25,7 @@ const Registration = () => {
             });
             return;
         }
-
+    
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
@@ -36,26 +36,29 @@ const Registration = () => {
                             email: data.email,
                             image: data.photoURL,
                         };
-                        // axiosPublic.post('/users', userInfo)
-                    //         .then(res => {
-                    //             if (res.data.insertedId) {
-                    //                 reset();
-                    //                 logOut();
-                    //                 Swal.fire({
-                    //                     position: "center",
-                    //                     title: "Successfully User created!",
-                    //                     icon: "success",
-                    //                     showConfirmButton: false,
-                    //                     timer: 1500
-                    //                 });
-                    //                 navigate('/login');
-                    //             }
-                    //         });
-                    // }).catch(error => console.log(error));
+                        /*
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    reset();
+                                    logOut();
+                                    Swal.fire({
+                                        position: "center",
+                                        title: "Successfully User created!",
+                                        icon: "success",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/login');
+                                }
+                            });
+                        */
+                    })
+                    .catch(error => console.log(error));
             });
     };
 
-    return (
+    return(
         <>
             <Helmet>
                 <title>Registration | aRe</title>
@@ -76,7 +79,7 @@ const Registration = () => {
                                 <input type="text" placeholder="name" {...register("name", { required: true })} className="input input-bordered" />
                                 {errors.name?.type === 'required' && <p className='text-gray-600 text-sm'>Name is required</p>}
                             </div>
-                            
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -84,7 +87,7 @@ const Registration = () => {
                                 <input type="email" placeholder="email" {...register('email', { required: true })} className="input input-bordered" />
                                 {errors.email?.type === 'required' && <p className='text-gray-600 text-sm'>Email is required</p>}
                             </div>
-                            
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
@@ -124,11 +127,11 @@ const Registration = () => {
                                 <input type="password" placeholder="confirm password" {...register('confirmPassword', { required: true })} className="input input-bordered" />
                                 {errors.confirmPassword?.type === 'required' && <p className='text-gray-600 text-sm'>Confirm Password is required</p>}
                             </div>
-                            
+
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
-                            
+
                             <p className='text-center'>
                                 <small>Already Registered Here?</small>
                                 <small className='text-blue-600'> <Link to="/login">Login Now</Link></small>
