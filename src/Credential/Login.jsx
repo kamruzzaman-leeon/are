@@ -35,7 +35,7 @@ const Login = () => {
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
-        // console.log(email, password);
+        console.log(email, password);
         signIn(email, password)
             .then(result => {
                 const user = result.user;
@@ -46,8 +46,8 @@ const Login = () => {
                     title: "Successfully Sign In!",
                     showConfirmButton: false,
                     timer: 1500
-                  });
-               
+                });
+
 
                 reset();
                 navigate(from, { replace: true })
@@ -90,12 +90,13 @@ const Login = () => {
                 <div className="flex-1 flex flex-col content-center justify-center p-5">
                     <div className='mx-auto w-full md:max-w-screen-sm shadow-md'>
                         <h2 className="text-5xl text-center font-extrabold text-blue-600 my-5">Login Now!</h2>
-                        <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+                       <div className='card-body'>
+                       <form className="" onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" {...register("email")} className="input input-bordered" />
+                                <input type="email" placeholder="email" {...register("email",{required:true})} className="input input-bordered" />
                                 {errors.email?.type === 'required' && <p className='text-red-600 p-2'>Email is require</p>}
                             </div>
                             <div className="form-control relative">
@@ -106,7 +107,7 @@ const Login = () => {
                                     <input
                                         type={showPassword ? "text" : "password"}
                                         placeholder="password"
-                                        {...register("password")}
+                                        {...register("password",{required:true})}
                                         className="input input-bordered w-full pr-10" // add padding to the right
                                     />
                                     <div
@@ -137,20 +138,19 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                            <p className='text-center'><small>New Here?</small><small className='text-blue-600'> <Link to="/registration">Registration Now</Link></small></p>
-                            <div className="divider">Sign In With</div>
-                            <SocialLogin></SocialLogin>
+                            
                         </form>
+                        
+                        <p className='text-center'><small>New Here?</small><small className='text-blue-600'> <Link to="/registration">Registration Now</Link></small></p>                                                            
+                            <p className='text-center'><small>Go to</small><small className='text-blue-600'> <Link to="/">Home Page</Link></small></p>                         
+                           <div className="divider">Sign In With</div>
+                            <SocialLogin></SocialLogin>
+                        </div>
+                      
                     </div>
                 </div>
-                
+
             </div>
-
-
-
-
-
-
         </div>
     );
 };

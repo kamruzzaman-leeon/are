@@ -8,6 +8,7 @@ import FindTeacher from '../Pages/FindTeacher/FindTeacher';
 import FindStudent from '../Pages/FindStudent/FindStudent';
 import Registration from '../Credential/Registration';
 import Login from "../Credential/Login";
+import Signout from '../Credential/Signout';
 
 
 
@@ -32,6 +33,18 @@ const Routers = createBrowserRouter([
           path:"find_student",
           element:<FindStudent></FindStudent>,
         },
+        {
+          path:"login",
+          element:<Login></Login>,
+        },
+        {
+          path:"registration",
+          element:<Registration></Registration>
+        },
+        {
+          path:"logout",
+          element:<Signout></Signout>
+        },
         
         {
           path:"profile",
@@ -39,15 +52,7 @@ const Routers = createBrowserRouter([
         }
       ]
     },
-    {
-      path:"/login",
-      element:<Login></Login>,
-    },
-    {
-      path:"/registration",
-      element:<Registration></Registration>
-    }
-    ,
+   
     {
         path:"*",
         element:<ErrorPage></ErrorPage>,

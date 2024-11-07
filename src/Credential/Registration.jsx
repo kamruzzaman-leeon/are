@@ -29,14 +29,15 @@ const Registration = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
+    
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        const userInfo = {
+                        const userInfo = { 
                             name: data.name,
                             email: data.email,
                             image: data.photoURL,
                         };
-                        /*
+    
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
@@ -51,10 +52,32 @@ const Registration = () => {
                                     });
                                     navigate('/login');
                                 }
+                            })
+                            .catch(error => {
+                                console.error("Failed to save user info:", error);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Failed to save user data',
+                                    text: 'An error occurred while saving your information. Please try again.'
+                                });
                             });
-                        */
                     })
-                    .catch(error => console.log(error));
+                    .catch(error => {
+                        console.error("Failed to update user profile:", error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Profile Update Failed',
+                            text: 'An error occurred while updating your profile. Please try again.'
+                        });
+                    });
+            })
+            .catch(error => {
+                console.error("Registration failed:", error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration Failed',
+                    text: 'An error occurred while creating your account. Please try again.'
+                });
             });
     };
 
@@ -77,7 +100,7 @@ const Registration = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" placeholder="name" {...register("name", { required: true })} className="input input-bordered" />
-                                {errors.name?.type === 'required' && <p className='text-gray-600 text-sm'>Name is required</p>}
+                                {errors.name?.type === 'required' && <p className='text-gray-600 p-2 text-sm'>Name is required</p>}
                             </div>
 
                             <div className="form-control">
@@ -85,7 +108,7 @@ const Registration = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" placeholder="email" {...register('email', { required: true })} className="input input-bordered" />
-                                {errors.email?.type === 'required' && <p className='text-gray-600 text-sm'>Email is required</p>}
+                                {errors.email?.type === 'required' && <p className='text-gray-600 p-2 text-sm'>Email is required</p>}
                             </div>
 
                             <div className="form-control">
@@ -94,7 +117,7 @@ const Registration = () => {
                                 </label>
                                 <input type="password" placeholder="password" {...register('password', {
                                     required: true,
-                                    minLength: 8,
+                                    minLength: 8, 
                                     maxLength: 20,
                                     pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
                                 })} className="input input-bordered" />
@@ -132,10 +155,11 @@ const Registration = () => {
                                 <button className="btn btn-primary">Register</button>
                             </div>
 
-                            <p className='text-center'>
+                            <div className='text-center'>
                                 <small>Already Registered Here?</small>
                                 <small className='text-blue-600'> <Link to="/login">Login Now</Link></small>
-                            </p>
+                                <p className='text-center'><small>Go to</small><small className='text-blue-600'> <Link to="/">Home Page</Link></small></p>             
+                            </div>
                         </form>
                     </div>
                 </div>
