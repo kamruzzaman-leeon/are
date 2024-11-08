@@ -1,20 +1,25 @@
 .navitem {
-    @apply px-4 pb-1 relative text-gray-600 hover:text-blue-600;
-  }
-
-  .navitem::after {
-    @apply absolute left-0 bottom-0 w-0 h-1 bg-transparent transition-all duration-500 ease-in-out;
-    content: '';
-  }
-
-  .navitem:hover::after {
-    @apply w-full bg-blue-600;
-  }
-
-  .active {
-    @apply font-semibold text-blue-600;
+  @apply px-4 pb-1 relative text-gray-600 hover:text-blue-600;
 }
 
-.active::after {
-    @apply w-full bg-blue-600;
+.navitem::after {
+  @apply absolute left-0 bottom-0 w-0 h-1 bg-transparent transition-all duration-500 ease-in-out;
+  content: '';
+}
+
+.navitem:hover::after {
+  @apply w-full bg-blue-600;
+}
+
+.active {
+  @apply font-semibold text-blue-600;
+}
+
+/* .active::after {
+  @apply w-full bg-blue-600;
+} */
+
+.navitem.active:hover::after {
+  /* Keeps the active link underline when hovered */
+  @apply w-full bg-blue-600;
 }

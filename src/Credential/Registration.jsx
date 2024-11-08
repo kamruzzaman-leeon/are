@@ -16,7 +16,7 @@ const Registration = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const password = useWatch({ control, name: 'password' });
-    const defaultImageURL = "https://www.flaticon.com/free-icons/user";
+    const defaultImageURL = "https://i.ibb.co.com/TH8nQcn/user-1.png";
 
     const onSubmit = async (data) => {
         if (data.password !== data.confirmPassword) {

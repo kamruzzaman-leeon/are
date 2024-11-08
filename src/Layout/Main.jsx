@@ -2,13 +2,18 @@ import { Outlet, useLocation, useNavigation } from 'react-router-dom';
 import Navbar from '../Component/Navbar/Navbar';
 import Footer from '../Component/Footer/Footer';
 import Loading from '../Component/Loading/Loading';
+import useAuth from '../hooks/useAuth';
 
 const Main = () => {
     const navigation = useNavigation();
     const location = useLocation();
     // console.log(location)
     const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('registration');
-    
+    const { loading } = useAuth(); // Get user and loading state from useAuth
+
+    if (loading) {
+        return <Loading />
+    }
     return (
         
         <div className='bg-white'>

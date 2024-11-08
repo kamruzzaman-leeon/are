@@ -37,6 +37,7 @@ const Login = () => {
             reset();
             navigate(from, { replace: true });
         } catch (error) {
+            console.log(error.code)
             Swal.fire({
                 title: 'Invalid Password!',
                 icon: 'error',

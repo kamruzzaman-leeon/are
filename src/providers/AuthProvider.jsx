@@ -1,68 +1,106 @@
-import React, { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { app } from "../Firebase/firebase.config";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
+import { 
+    GoogleAuthProvider, 
+    createUserWithEmailAndPassword, 
+    getAuth, 
+    onAuthStateChanged, 
+    signInWithEmailAndPassword, 
+    signInWithPopup, 
+    signOut, 
+    updateProfile 
+} from "firebase/auth";
 import useAxiosPublic from '../hooks/useAxiosPublic';
+
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
-
 const AuthProvider = ({ children }) => {
-
     const axiosPublic = useAxiosPublic();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
 
-    const createUser = (email, password) => {
-        setLoading(true)
-        return createUserWithEmailAndPassword(auth, email, password)
-    }
+    const createUser = async (email, password) => {
+        setLoading(true);
+        try {
+            const result = await createUserWithEmailAndPassword(auth, email, password);
+            return result;
+        } catch (error) {
+            console.error("Error creating user:", error);
+            setLoading(false);
+            throw error;
+        }
+    };
 
-    const signIn = (email, password) => {
+    const signIn = async (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
-    }
-    const googleSignIn = () => {
+        try {
+            const result = await signInWithEmailAndPassword(auth, email, password);
+            return result;
+        } catch (error) {
+            console.error("Error signing in:", error);
+            setLoading(false);
+            throw error;
+        }
+    };
+
+    const googleSignIn = async () => {
         setLoading(true);
-        return signInWithPopup(auth, googleProvider);
-    }
-    const logOut = () => {
-        setLoading(true)
-        return signOut(auth);
-    }
-    const updateUserProfile = (name, photo) => {
-        return updateProfile(auth.currentUser, {
-            displayName: name, photoURL: photo
-        })
-    }
+        try {
+            return await signInWithPopup(auth, googleProvider);
+        } catch (error) {
+            console.error("Error with Google sign-in:", error);
+            setLoading(false);
+            throw error;
+        }
+    };
+
+    const logOut = async () => {
+        setLoading(true);
+        try {
+            await signOut(auth);
+            localStorage.removeItem('access-token');
+        } catch (error) {
+            console.error("Error signing out:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const updateUserProfile = async (name, photo) => {
+        try {
+            return await updateProfile(auth.currentUser, {
+                displayName: name,
+                photoURL: photo
+            });
+        } catch (error) {
+            console.error("Error updating profile:", error);
+            throw error;
+        }
+    };
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+        const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser);
-            console.log('current user', currentUser);
-            
-            // if (currentUser) {
-            //     //get token and store client
-            //     const userInfo = { email: currentUser.email }
-            //     axiosPublic.post('/jwt', userInfo)
-            //         .then(res => {
-            //             if (res.data.token) {
-            //                 localStorage.setItem('access-token', res.data.token);
-            //                 setLoading(false)
-            //             }
-            //         })
-            // }
-            // else {
-            //     //todo: remove token
-            //     localStorage.removeItem('access-token')
-            // }
-            setLoading(false)
+            if (currentUser) {
+                const userInfo = { email: currentUser.email };
+                try {
+                    const res = await axiosPublic.post('/jwt', userInfo);
+                    if (res.data.token) {
+                        localStorage.setItem('access-token', res.data.token);
+                    }
+                } catch (error) {
+                    console.error("Error fetching JWT:", error);
+                }
+            } else {
+                localStorage.removeItem('access-token');
+            }
+            setLoading(false);
         });
-        return () => {
-            return unSubscribe();
-        }
-    }, [axiosPublic])
+        return () => unSubscribe();
+    }, [axiosPublic]);
 
     const authInfo = {
         user,
@@ -72,8 +110,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         updateUserProfile,
         googleSignIn,
-
-    }
+    };
 
     return (
         <AuthContext.Provider value={authInfo}>
@@ -83,7 +120,7 @@ const AuthProvider = ({ children }) => {
 };
 
 AuthProvider.propTypes = {
-    children: PropTypes.object,
-}
+    children: PropTypes.node,
+};
 
 export default AuthProvider;

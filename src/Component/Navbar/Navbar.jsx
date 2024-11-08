@@ -9,10 +9,12 @@ import { IoSettings } from "react-icons/io5";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import Loading from "../Loading/Loading";
 
 const Navbar = () => {
-    const {user,loading} = useAuth();
-    console.log("user:",user)
+    const { user, loading } = useAuth();
+    
+    // console.log("user:", user)
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -23,6 +25,12 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // // Check if the page is still loading
+    // if (loading) {
+    //     return <Loading />;  // Show Loading component while data is being fetched
+    // }
+
     const navoptions = <>
         <li className="navitem ">
 
@@ -59,9 +67,10 @@ const Navbar = () => {
             > <PiStudentFill className="text-2xl" />
                 <span>Find Student</span>
             </NavLink>
+            
         </li>
     </>;
-
+    
     return (
 
         <div
@@ -105,19 +114,18 @@ const Navbar = () => {
 
                         (<div className="dropdown dropdown-end">
 
-                            <div tabIndex={0} role="button" className="btn btn-ghost hover:bg-blue-500 btn-circle avatar">
+                            <div tabIndex={0} role="button" className="btn btn-ghost  btn-circle avatar">
                                 <div className="w-auto rounded-full">
-                                    <img
-                                        alt={`${user?.displayName}'s photo`}
-                                        src={user?.photoURL}
-                                        />
+                                    <img src={user?.photoURL}
+                                        
+                                    />
                                 </div>
                             </div>
                             <ul
                                 tabIndex={0}
                                 className=" dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-auto p-4 shadow">
                                 <li><span className="text-md mr-2" >{user?.displayName}</span></li>
-                                <hr className=" my-1"/>
+                                <hr className=" my-1" />
                                 <li className="navitem"><NavLink to="/profile" className={`inline-flex items-center`}><CgProfile className="text-2xl mr-2" /><span>Profile</span></NavLink></li>
                                 <li className="navitem"><NavLink to="/settings" className={`inline-flex items-center`}><IoSettings className="text-2xl mr-2" /><span>Settings</span></NavLink></li>
                                 <li className="navitem"><NavLink to="/logout" className={`inline-flex items-center`}> <FaSignOutAlt className="text-2xl mr-2" /><span>LogOut</span></NavLink> </li>
