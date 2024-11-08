@@ -126,9 +126,9 @@ const Navbar = () => {
                                 className=" dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-auto p-4 shadow">
                                 <li><span className="text-md mr-2" >{user?.displayName}</span></li>
                                 <hr className=" my-1" />
-                                <li className="navitem"><NavLink to="/profile" className={`inline-flex items-center`}><CgProfile className="text-2xl mr-2" /><span>Profile</span></NavLink></li>
-                                <li className="navitem"><NavLink to="/settings" className={`inline-flex items-center`}><IoSettings className="text-2xl mr-2" /><span>Settings</span></NavLink></li>
-                                <li className="navitem"><NavLink to="/logout" className={`inline-flex items-center`}> <FaSignOutAlt className="text-2xl mr-2" /><span>LogOut</span></NavLink> </li>
+                                <li className="navitem"><NavLink to="/profile" className={`inline-flex items-center`}><CgProfile className="text-xl mr-2" /><span>Profile</span></NavLink></li>
+                                <li className="navitem"><NavLink to="/settings" className={`inline-flex items-center`}><IoSettings className="text-xl mr-2" /><span>Settings</span></NavLink></li>
+                                <li className="navitem"><NavLink to="/logout" className={`inline-flex items-center`}> <FaSignOutAlt className="text-xl mr-2" /><span>Logout</span></NavLink> </li>
                             </ul>
                         </div>) :
                         (<div>
