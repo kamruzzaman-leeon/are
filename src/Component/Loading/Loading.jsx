@@ -3,7 +3,7 @@ import loading from '../../assets/loading.json'
 
 const Loading = () => {
     return (
-        <div className=''>
+        <div >
             <div className="w-32 mx-auto">
                 <Lottie animationData={loading} loop={true} />
             </div>

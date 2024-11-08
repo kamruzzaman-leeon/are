@@ -1,6 +1,7 @@
 import { Outlet, useLocation, useNavigation } from 'react-router-dom';
 import Navbar from '../Component/Navbar/Navbar';
 import Footer from '../Component/Footer/Footer';
+import Loading from '../Component/Loading/Loading';
 
 const Main = () => {
     const navigation = useNavigation();
@@ -22,10 +23,13 @@ const Main = () => {
                     {
                         navigation.state === 'loading' ? (
                             <div className='flex justify-center items-center'>
-                                <span className="loading loading-bars loading-lg"></span>
+                                {/* <span className="loading loading-bars loading-lg"></span> */}
+                                <Loading></Loading>
                             </div>
                         ) : (
-                            <Outlet className=""/>
+                           
+                                <Outlet className="max-h-screen"/>
+                            
                         )
                     }
                 </div>

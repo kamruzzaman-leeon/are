@@ -9,6 +9,9 @@ import FindStudent from '../Pages/FindStudent/FindStudent';
 import Registration from '../Credential/Registration';
 import Login from "../Credential/Login";
 import Signout from '../Credential/Signout';
+import PrivateRoute from './PrivateRoute';
+import Profile from '../Pages/Profile/Profile';
+import Settings from '../Pages/Settings/Settings';
 
 
 
@@ -48,7 +51,11 @@ const Routers = createBrowserRouter([
         
         {
           path:"profile",
-          element:<div>profile</div>
+          element:<PrivateRoute><Profile></Profile></PrivateRoute>
+        },
+        {
+          path:"settings",
+          element:<PrivateRoute><Settings></Settings></PrivateRoute>
         }
       ]
     },
