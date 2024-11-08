@@ -39,7 +39,7 @@ const Registration = () => {
             const userInfo = {
                 name: data.name,
                 email: data.email,
-                image: photoURL,
+                photo: photoURL,
             };
 
             const res = await axiosPublic.post('/users', userInfo);

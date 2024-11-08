@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
-    const { user} = useAuth();
-    // console.log(user)
+    const {user,loading} = useAuth();
+    console.log("user:",user)
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -108,8 +108,9 @@ const Navbar = () => {
                             <div tabIndex={0} role="button" className="btn btn-ghost hover:bg-blue-500 btn-circle avatar">
                                 <div className="w-auto rounded-full">
                                     <img
-                                        alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                        alt={`${user?.displayName}'s photo`}
+                                        src={user?.photoURL}
+                                        />
                                 </div>
                             </div>
                             <ul

@@ -12,6 +12,7 @@ import Signout from '../Credential/Signout';
 import PrivateRoute from './PrivateRoute';
 import Profile from '../Pages/Profile/Profile';
 import Settings from '../Pages/Settings/Settings';
+import JoinTeacher from '../Pages/JoinTeacher/JoinTeacher';
 
 
 
@@ -52,6 +53,10 @@ const Routers = createBrowserRouter([
         {
           path:"profile",
           element:<PrivateRoute><Profile></Profile></PrivateRoute>
+        },
+        {
+          path:"jointeacher",
+          element:<JoinTeacher></JoinTeacher>
         },
         {
           path:"settings",
