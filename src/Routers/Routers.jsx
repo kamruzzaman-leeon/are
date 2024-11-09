@@ -13,6 +13,7 @@ import PrivateRoute from './PrivateRoute';
 import Profile from '../Pages/Profile/Profile';
 import Settings from '../Pages/Settings/Settings';
 import JoinTeacher from '../Pages/JoinTeacher/JoinTeacher';
+import ProfileUpdate from '../Pages/ProfileUpdate/ProfileUpdate';
 
 
 
@@ -53,6 +54,10 @@ const Routers = createBrowserRouter([
         {
           path:"profile",
           element:<PrivateRoute><Profile></Profile></PrivateRoute>
+        },
+        {
+          path:"profileUpdate",
+          element:<ProfileUpdate></ProfileUpdate>
         },
         {
           path:"jointeacher",

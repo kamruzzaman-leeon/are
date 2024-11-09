@@ -3,6 +3,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import EducationForm from '../../Component/EducationForm/EducationForm';
 import PersonalInfoForm from '../../Component/PersonalInfoForm/PersonalInfoForm';
+import ProfileUpdate from '../ProfileUpdate/ProfileUpdate';
 
 const JoinTeacher = () => {
     const { user } = useAuth();
@@ -42,6 +43,9 @@ const JoinTeacher = () => {
                         <button type="submit" className="btn btn-primary w-full">Submit</button>
                     </form>
                 </FormProvider>
+            </div>
+            <div>
+               
             </div>
         </div>
     );
