@@ -10,6 +10,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Loading from "../Loading/Loading";
+import { GiTeacher } from "react-icons/gi";
 
 const Navbar = () => {
     const { user, loading } = useAuth();
@@ -53,7 +54,7 @@ const Navbar = () => {
         <li className="navitem">
 
             <NavLink
-                to="/find_teacher"
+                to="/findteacher"
                 className={`inline-flex gap-x-1 content-center  ({ isActive }) => isActive ? "active" : ""`}
             ><LiaChalkboardTeacherSolid className="text-2xl" />
                 <span>Find Teacher</span>
@@ -62,13 +63,23 @@ const Navbar = () => {
         <li className="navitem">
 
             <NavLink
-                to="/find_student"
+                to="/jointeacher"
+                className={`inline-flex gap-x-1  content-center  ({ isActive }) => isActive ? "active" : ""`}
+            > <GiTeacher className="text-2xl" />
+                <span>Join As Teacher</span>
+            </NavLink>
+        </li>
+        {/* do it later version */}
+        {/* <li className="navitem">
+
+            <NavLink
+                to="/findstudent"
                 className={`inline-flex gap-x-1  content-center  ({ isActive }) => isActive ? "active" : ""`}
             > <PiStudentFill className="text-2xl" />
                 <span>Find Student</span>
             </NavLink>
-            
-        </li>
+        </li> */}
+        
     </>;
     
     return (

@@ -20,7 +20,7 @@ const SocialLogin = () => {
                 };
                 
                 // Send user information to the backend
-                axiosPublic.post('/users', userInfo)
+                axiosPublic.post('/users', userInfo,{withCredentials:true})
                     .then(res => {
                         console.log("User successfully created:", res.data);
                         navigate('/');

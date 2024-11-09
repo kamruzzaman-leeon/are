@@ -15,11 +15,6 @@
   @apply font-semibold text-blue-600;
 }
 
-/* .active::after {
-  @apply w-full bg-blue-600;
-} */
-
-.navitem.active:hover::after {
-  /* Keeps the active link underline when hovered */
+.active::after {
   @apply w-full bg-blue-600;
 }

@@ -62,6 +62,7 @@ const AuthProvider = ({ children }) => {
         try {
             await signOut(auth);
             localStorage.removeItem('access-token');
+            setUser(null);
         } catch (error) {
             console.error("Error signing out:", error);
         } finally {
@@ -84,20 +85,20 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser);
+            setLoading(false); // Reset loading regardless of user status
+
             if (currentUser) {
                 const userInfo = { email: currentUser.email };
                 try {
-                    const res = await axiosPublic.post('/jwt', userInfo);
-                    if (res.data.token) {
-                        localStorage.setItem('access-token', res.data.token);
-                    }
+                    const res = await axiosPublic.post('/jwt', userInfo, { withCredentials: true });
+                    // console.log(res); // For debugging, remove in production
                 } catch (error) {
                     console.error("Error fetching JWT:", error);
                 }
-            } else {
-                localStorage.removeItem('access-token');
-            }
-            setLoading(false);
+            } 
+        }, (error) => {
+            console.error("Error in onAuthStateChanged:", error);
+            setLoading(false); // Ensure loading is stopped on error
         });
         return () => unSubscribe();
     }, [axiosPublic]);

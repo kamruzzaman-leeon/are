@@ -22,10 +22,8 @@ const Main = () => {
             {/* Conditionally render Navbar and Footer based on the path */}
             {!noHeaderFooter && <Navbar />}
             
-            <div className="font-[Poppins] flex flex-col justify-between mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex-1">
-                    <Outlet className="max-h-screen" />
-                </div>
+            <div className="font-[Poppins] mx-auto min-h-screen">
+                <Outlet/>               
             </div>
             
             {/* Conditionally render Footer */}

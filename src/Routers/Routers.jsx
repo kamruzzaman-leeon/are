@@ -30,11 +30,11 @@ const Routers = createBrowserRouter([
           element:<Search></Search>,
         },
         {
-          path:"find_teacher",
+          path:"findteacher",
           element:<FindTeacher></FindTeacher>,
         },
         {
-          path:"find_student",
+          path:"findstudent",
           element:<FindStudent></FindStudent>,
         },
         {
@@ -56,7 +56,7 @@ const Routers = createBrowserRouter([
         },
         {
           path:"jointeacher",
-          element:<JoinTeacher></JoinTeacher>
+          element:<PrivateRoute><JoinTeacher></JoinTeacher></PrivateRoute>
         },
         {
           path:"settings",

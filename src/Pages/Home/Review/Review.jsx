@@ -3,7 +3,7 @@ import ReviewCard from './ReviewCard';
 
 const Review = () => {
     return (
-        <div className='my-5 md:my-10 '>
+        <div className='my-5 md:my-10 px-5 lg:px-8'>
             <div className=''>
                 <h1 className="text-center text-5xl mt-20"></h1>
                 <p className='text-center'></p>

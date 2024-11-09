@@ -2,10 +2,11 @@ import React from 'react';
 import Filters from '../../Component/Filters';
 import TeacherCard from './TeacherCard';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 const FindTeacher = () => {
     return (
-        <div className='centerwithfixedwidth'>
+        <div className='centerwithfixedwidth p-5'>
             <Helmet>
                 <title>Find Teacher | Are</title>
             </Helmet>
@@ -14,6 +15,7 @@ const FindTeacher = () => {
                     <Filters></Filters>
                 </div>
                 <div className='col-span-4 p-2 border'>
+                   
                     <div className="shadow bg-white my-3 p-5 flex justify-between">
                         <h1 className='font-semibold content-center'> Total Teacher X</h1>
                         <div className='inline-flex items-center gap-2'><span>show</span> <form><select className="select select-bordered w-full max-w-xs">
