@@ -16,11 +16,11 @@ const SocialLogin = () => {
                 const userInfo = {
                     email: result.user?.email,
                     name: result.user?.displayName,
-                    image: result.user?.photoURL,
+                    photo: result.user?.photoURL,
                 };
                 
                 // Send user information to the backend
-                axiosPublic.post('/users', userInfo,{withCredentials:true})
+                axiosPublic.post('/users', userInfo, {withCredentials:true})
                     .then(res => {
                         console.log("User successfully created:", res.data);
                         navigate('/');
