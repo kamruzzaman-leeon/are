@@ -1,107 +1,117 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 
 const PersonalInfo = ({ formData, setFormData }) => {
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const { register, watch } = useForm({
+    defaultValues: formData,
+  });
+
+  // Watch form inputs to trigger updates on change
+  const watchFields = watch(['ageRange', 'gender', 'disability', 'contactNumber']);
+
+  // Auto-save the data on any change
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, ...watchFields }));
+  }, [watchFields, setFormData]);
 
   return (
     <div className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">Age Range</label>
+        <label className="block text-sm font-medium text-gray-700">Age Range<span className='text-red-600'>*</span></label>
         <div className="flex space-x-4">
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="ageRange"
+              {...register('ageRange',{required:true})}
               value="below 18"
-              checked={formData.ageRange === 'below 18'}
-              onChange={handleChange}
+              className="radio radio-primary"
             />
-            Below 18
+            <span>Below 18</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="ageRange"
+              {...register('ageRange',{required:true})}
               value="19-25"
-              checked={formData.ageRange === '19-25'}
-              onChange={handleChange}
+              className="radio radio-primary"
             />
-            19-25
+            <span>19-25</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="ageRange"
+              {...register('ageRange')}
               value="26-30"
-              checked={formData.ageRange === '26-30'}
-              onChange={handleChange}
+              className="radio radio-primary"
             />
-            26-30
+            <span>26-30</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="ageRange"
+              {...register('ageRange')}
               value="31+"
-              checked={formData.ageRange === '31+'}
-              onChange={handleChange}
+              className="radio radio-primary"
             />
-            31+
+            <span>31+</span>
           </label>
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Gender</label>
+        <label className="block text-sm font-medium text-gray-700">Gender<span className='text-red-600'>*</span></label>
         <div className="flex space-x-4">
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="gender"
+              {...register('gender')}
               value="male"
-              checked={formData.gender === 'male'}
-              onChange={handleChange}
+              className="radio radio-primary"
             />
-            Male
+            <span>Male</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="gender"
+              {...register('gender')}
               value="female"
-              checked={formData.gender === 'female'}
-              onChange={handleChange}
+              className="radio radio-primary"
             />
-            Female
+            <span>Female</span>
+          </label>
+          <label className="flex items-center space-x-2">
+            <input
+              type="radio"
+              {...register('gender')}
+              value="other"
+              className="radio radio-primary"
+            />
+            <span>Other</span>
           </label>
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Disability</label>
+        <label className="block text-sm font-medium text-gray-700">Disability<span className='text-red-600'>*</span></label>
         <div className="flex space-x-4">
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="disability"
+              {...register('disability')}
               value="yes"
-              checked={formData.disability === 'yes'}
-              onChange={handleChange}
+              className="radio radio-primary"
             />
-            Yes
+            <span>Yes</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="disability"
+              {...register('disability')}
               value="no"
-              checked={formData.disability === 'no'}
-              onChange={handleChange}
+              className="radio radio-primary"
+              defaultChecked
             />
-            No
+            <span>No</span>
           </label>
         </div>
       </div>
@@ -110,9 +120,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
         <label className="block text-sm font-medium text-gray-700">Contact Number</label>
         <input
           type="text"
-          name="contactNumber"
-          value={formData.contactNumber || ''}
-          onChange={handleChange}
+          {...register('contactNumber')}
           className="input input-bordered w-full"
           placeholder="Enter your contact number"
         />

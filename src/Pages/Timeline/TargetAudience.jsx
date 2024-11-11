@@ -1,87 +1,101 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 
 const TargetAudience = ({ formData, setFormData }) => {
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const { register, watch, formState: { errors } } = useForm({
+    defaultValues: formData,
+  });
+
+  // Watch the targetAudience field to trigger updates
+  const watchFields = watch('targetAudience');
+  const watchOthers = Array.isArray(watchFields) ? watchFields.includes('Others') : watchFields === 'Others';
+
+  // Auto-save the data on any change
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, targetAudience: watchFields }));
+  }, [watchFields, setFormData]);
 
   return (
-    <div className="space-y-4">
-      <div>
+    <div>
+      <div className="space-y-4">
         <label className="block text-sm font-medium text-gray-700">Target Audience</label>
-        <div className="flex space-x-4">
-          <label className="radio">
+        <div className="flex flex-col space-y-4">
+          <label className="flex items-center space-x-2">
             <input
-              type="radio"
-              name="targetAudience"
+              type="checkbox"
+              {...register('targetAudience', { required: true })}
               value="Bangla version"
-              checked={formData.targetAudience === 'Bangla version'}
-              onChange={handleChange}
             />
-            Bangla version
+            <span>Bangla version</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
-              type="radio"
-              name="targetAudience"
+              type="checkbox"
+              {...register('targetAudience', { required: true })}
               value="English version"
-              checked={formData.targetAudience === 'English version'}
-              onChange={handleChange}
             />
-            English version
+            <span>English version</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
-              type="radio"
-              name="targetAudience"
+              type="checkbox"
+              {...register('targetAudience', { required: true })}
               value="English medium"
-              checked={formData.targetAudience === 'English medium'}
-              onChange={handleChange}
             />
-            English medium
+            <span>English medium</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
-              type="radio"
-              name="targetAudience"
+              type="checkbox"
+              {...register('targetAudience', { required: true })}
               value="Bangla medium"
-              checked={formData.targetAudience === 'Bangla medium'}
-              onChange={handleChange}
             />
-            Bangla medium
+            <span>Bangla medium</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
-              type="radio"
-              name="targetAudience"
+              type="checkbox"
+              {...register('targetAudience', { required: true })}
               value="Madrasa"
-              checked={formData.targetAudience === 'Madrasa'}
-              onChange={handleChange}
             />
-            Madrasa
+            <span>Madrasa</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
-              type="radio"
-              name="targetAudience"
+              type="checkbox"
+              {...register('targetAudience', { required: true })}
               value="Special child"
-              checked={formData.targetAudience === 'Special child'}
-              onChange={handleChange}
             />
-            Special child
+            <span>Special child</span>
           </label>
-          <label className="radio">
+          <label className="flex items-center space-x-2">
             <input
-              type="radio"
-              name="targetAudience"
+              type="checkbox"
+              {...register('targetAudience', { required: true })}
               value="Others"
-              checked={formData.targetAudience === 'Others'}
-              onChange={handleChange}
             />
-            Others
+            <span>Others</span>
           </label>
+
+          {/* Conditionally render the "Others" input field */}
+          {watchOthers && (
+            <div className="mt-2">
+              <label className="block text-sm font-medium text-gray-700">Specify Other Audience</label>
+              <input
+                type="text"
+                {...register('otherTargetAudience', { required: watchOthers })}
+                className="input input-bordered w-full mt-1"
+                placeholder="Specify other audience"
+              />
+            </div>
+          )}
         </div>
+        {errors.targetAudience && (
+          <p className="text-red-500 text-sm mt-1">Please select at least one target audience.</p>
+        )}
+        {errors.otherTargetAudience && watchOthers && (
+          <p className="text-red-500 text-sm mt-1">Please specify the other audience.</p>
+        )}
       </div>
     </div>
   );

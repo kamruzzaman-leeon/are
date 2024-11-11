@@ -26,14 +26,14 @@ const Timeline = () => {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto p-8">
+    <div className="card card-body card-bordered max-w-3xl mx-auto p-8">
       {/* Steps Navigation (Horizontal) */}
       <div className="flex items-center justify-between mb-6">
         {steps.map((stepData, index) => (
           <div
             key={index}
             className={`step text-center flex-1 py-2 cursor-pointer transition-colors duration-300 
-            ${step === index + 1 ? 'text-white bg-blue-600' : 'text-gray-700 hover:bg-blue-200'}`}
+            ${step === index + 1 ? 'text-white btn bg-blue-600' : 'text-gray-700 hover:bg-blue-200'}`}
             onClick={() => setStep(index + 1)}
           >
             <span className="block">{stepData.label}</span>
