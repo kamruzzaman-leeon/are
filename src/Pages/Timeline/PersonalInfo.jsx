@@ -1,129 +1,102 @@
-import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import React from 'react';
+import { Controller } from 'react-hook-form';
 
-const PersonalInfo = ({ formData, setFormData }) => {
-  const { register, watch } = useForm({
-    defaultValues: formData,
-  });
-
-  // Watch form inputs to trigger updates on change
-  const watchFields = watch(['ageRange', 'gender', 'disability', 'contactNumber']);
-
-  // Auto-save the data on any change
-  useEffect(() => {
-    setFormData((prev) => ({ ...prev, ...watchFields }));
-  }, [watchFields, setFormData]);
-
+const PersonalInfo = ({ control, errors }) => {
   return (
-    <div className="space-y-4">
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Age Range<span className='text-red-600'>*</span></label>
-        <div className="flex space-x-4">
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('ageRange',{required:true})}
-              value="below 18"
-              className="radio radio-primary"
-            />
-            <span>Below 18</span>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('ageRange',{required:true})}
-              value="19-25"
-              className="radio radio-primary"
-            />
-            <span>19-25</span>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('ageRange')}
-              value="26-30"
-              className="radio radio-primary"
-            />
-            <span>26-30</span>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('ageRange')}
-              value="31+"
-              className="radio radio-primary"
-            />
-            <span>31+</span>
-          </label>
-        </div>
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Gender<span className='text-red-600'>*</span></label>
-        <div className="flex space-x-4">
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('gender')}
-              value="male"
-              className="radio radio-primary"
-            />
-            <span>Male</span>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('gender')}
-              value="female"
-              className="radio radio-primary"
-            />
-            <span>Female</span>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('gender')}
-              value="other"
-              className="radio radio-primary"
-            />
-            <span>Other</span>
-          </label>
-        </div>
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Disability<span className='text-red-600'>*</span></label>
-        <div className="flex space-x-4">
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('disability')}
-              value="yes"
-              className="radio radio-primary"
-            />
-            <span>Yes</span>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              {...register('disability')}
-              value="no"
-              className="radio radio-primary"
-              defaultChecked
-            />
-            <span>No</span>
-          </label>
-        </div>
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Contact Number</label>
-        <input
-          type="text"
-          {...register('contactNumber')}
-          className="input input-bordered w-full"
-          placeholder="Enter your contact number"
+    <div>
+      <div className='flex flex-row items-center'>
+        <label className='label'>Age Range<span className='text-red-500'>*</span></label>
+        <Controller
+          name="ageRange"
+          control={control}
+          rules={{ required: "Age range is required" }}
+          render={({ field }) => (
+            <div className='flex flex-1 justify-evenly flex-col md:flex-row'>
+              <label className='label cursor-pointer'>
+                <input type="radio" {...field} value="below-18" />
+                <span className='mx-2'>below 18</span>
+              </label>
+              <label className='label cursor-pointer'>
+                <input type="radio" {...field} value="19-25" />
+                <span className='mx-2'>19-25</span>
+              </label>
+              <label className='label cursor-pointer'>
+                <input type="radio" {...field} value="26-30" />
+                <span className='mx-2'>26-30</span>
+              </label>
+              <label className='label cursor-pointer'>
+                <input type="radio" {...field} value="31+" />
+                <span className='mx-2'>31+</span>
+              </label>
+            </div>
+          )}
         />
+        {errors.ageRange && <span className='text-red-500'>{errors.ageRange.message}</span>}
+      </div>
+
+      <div className='flex flex-row items-center'>
+        <label className='label'>Gender<span className='text-red-500'>*</span></label>
+        <Controller
+          name="gender"
+          control={control}
+          rules={{ required: "Gender is required" }}
+          render={({ field }) => (
+            <div className='flex flex-1 justify-evenly flex-col md:flex-row'>
+              <label className='label cursor-pointer'>
+                <input type="radio" {...field} value="Male" />
+                <span className='mx-2'>Male</span>
+              </label>
+              <label className='label cursor-pointer'>
+                <input type="radio" {...field} value="Female" />
+                <span className='mx-2'>Female</span>
+              </label>
+              <label className='label cursor-pointer'>
+                <input type="radio" {...field} value="Other" />
+                <span className='mx-2'>Other</span>
+              </label>
+            </div>
+          )}
+        />
+        {errors.gender && <span className='text-red-500'>{errors.gender.message}</span>}
+      </div>
+
+      <div className='flex flex-row items-center'>
+        <label className='label'>Disability</label>
+        <Controller
+          name="disability"
+          control={control}
+          render={({ field }) => (
+            <input type="checkbox" {...field} />
+          )}
+        />
+      </div>
+
+      <div className="flex flex-row items-center">
+        <label className="label">Mobile Number<span className='text-red-500'>*</span></label>
+        <div className="join">
+          <span className="join-item btn text-gray-700">+88</span>
+          <Controller
+            name="mobile"
+            control={control}
+            rules={{
+              required: "Mobile number is required",
+              pattern: {
+                value: /^[0-9]{11}$/,
+                message: "Mobile number must be 11 digits (without the +88)",
+              },
+            }}
+            render={({ field }) => (
+              <input
+                {...field}
+                type="text"
+                placeholder="Enter your mobile number"
+                className="input input-bordered join-item"
+                maxLength={11} // Only allow 11 digits for the mobile number
+              />
+            )}
+          />
+        </div>
+        {errors.mobile && <span className="text-red-500 text-sm">{errors.mobile.message}</span>}
       </div>
     </div>
   );
